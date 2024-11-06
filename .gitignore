@@ -1,0 +1,57 @@
+# Ignorer le dossier build
+/build/
+
+# Fichiers de configuration Qt Creator
+*.pro.user
+*.qbs.user
+*.pro.user.*
+*.pro.*.user
+*.qmake.stash
+*.qmake.cache
+
+# Dossiers de construction CMake
+/cmake-build-*/
+
+# Fichiers de sortie des compilations
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+*.out
+*.app
+*.dSYM/
+*.pdb
+*.exp
+*.idb
+
+# Fichiers cache de CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+CTestTestfile.cmake
+install_manifest.txt
+
+# Dossiers de compilation pour les IDEs
+.idea/
+.vscode/
+
+# Fichiers de configuration générés automatiquement
+compile_commands.json
+compile_flags.txt
+conanbuildinfo.cmake
+CTestTestfile.cmake
+
+# Fichiers de log et temporaires
+*.log
+*.tmp
+*.temp
+*.bak
+
+# Fichiers système pour Mac OS
+.DS_Store
