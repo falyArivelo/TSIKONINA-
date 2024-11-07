@@ -4,7 +4,7 @@ project(TSIKONINA VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.4 REQUIRED COMPONENTS Quick Network)
+find_package(Qt6 6.4 REQUIRED COMPONENTS Quick Network Sql )
 
 qt_standard_project_setup()
 
@@ -19,6 +19,13 @@ qt_add_qml_module(appTSIKONINA
         Main.qml
         SOURCES model/recipe.h model/recipe.cpp
         SOURCES model/recipe_fetcher.h model/recipe_fetcher.cpp
+        SOURCES
+        SOURCES
+        SOURCES
+        SOURCES db_connection/idatabase.h
+        SOURCES db_connection/sqlite_database.h db_connection/sqlite_database.cpp
+        SOURCES db_connection/database_factory.h db_connection/database_factory.cpp
+        SOURCES model/recipe_downloader.h model/recipe_downloader.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -36,6 +43,7 @@ target_link_libraries(appTSIKONINA
     PRIVATE
     Qt6::Quick
     Qt6::Network
+    Qt6::Sql
 )
 
 include(GNUInstallDirs)
