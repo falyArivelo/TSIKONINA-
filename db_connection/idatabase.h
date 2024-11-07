@@ -13,7 +13,7 @@ public:
     virtual void disconnect() = 0;
     virtual bool isConnected() const = 0;
 
-protected:
+public:
     QSqlDatabase db;
 };
 

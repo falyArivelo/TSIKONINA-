@@ -47,6 +47,12 @@ ApplicationWindow {
                         anchors.verticalCenter: parent.verticalCenter
 
                         Text {
+                            text: "Instructions: " + model.id
+                            font.pointSize: 10
+                            color: "#333"
+                            wrapMode: Text.WordWrap
+                        }
+                        Text {
                             text: model.name
                             font.bold: true
                             font.pointSize: 16
@@ -56,6 +62,19 @@ ApplicationWindow {
                             text: model.category + " - " + model.area
                             font.pointSize: 12
                             color: "#666"
+                        }
+
+                        Button {
+                            text: "download"
+                            width: 100
+                            height: 50
+                            //anchors.horizontalCenter: parent.horizontalCenter
+                            //anchors.top: contentItem.bottom
+
+                            // Action à faire quand le bouton est pressé
+                            onClicked: {
+                                recipeDownloader.fetchAndSaveRecipe(model.id)
+                            }
                         }
 
                         Text {

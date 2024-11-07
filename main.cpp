@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "./model/Recipe_Fetcher.h"
+#include "./model/recipe_downloader.h"
 #include "./db_connection/database_factory.h"
 
 
@@ -20,7 +21,9 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     RecipeFetcher recipeFetcher;
+    RecipeDownloader recipeDownloader(std::move(database));
     engine.rootContext()->setContextProperty("recipeFetcher", &recipeFetcher);
+    engine.rootContext()->setContextProperty("recipeDownloader", &recipeDownloader);
 
     const QUrl url(QStringLiteral("qrc:/TSIKONINA/Main.qml"));
     QObject::connect(
